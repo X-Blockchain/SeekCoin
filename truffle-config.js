@@ -1,16 +1,15 @@
-const dotenv = require('dotenv')
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
 
-
-const HDWalletProvider = require('@truffle/hdwallet-provider')
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
-  plugins: ['truffle-plugin-verify'],
+  plugins: ["truffle-plugin-verify"],
   api_keys: {
-    bscscan: '2IQ7HGRG1JK283SMENAKXN4ITCQS4K454S', //bsc
-    etherscan: 'UTGI398N6DI5Q3KBXDDCQI8YJDN89FWUFQ', //ether
-    polygonscan: 'F8TAY97BTJHAVZZHV3WGK62E6IFPWSS6CE', //matic
-    ftmscan: 'HUEK6CEPJ6X63S1BB24RNPB1K2QAKHI5X1', //ftm
+    bscscan: "2IQ7HGRG1JK283SMENAKXN4ITCQS4K454S", //bsc
+    etherscan: "UTGI398N6DI5Q3KBXDDCQI8YJDN89FWUFQ", //ether
+    polygonscan: "F8TAY97BTJHAVZZHV3WGK62E6IFPWSS6CE", //matic
+    ftmscan: "HUEK6CEPJ6X63S1BB24RNPB1K2QAKHI5X1", //ftm
     // etherscan: '5BPBFI4QSJCQWEM51D576A56YA7YUTGM85', //avax
   },
 
@@ -19,7 +18,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+          providerOrUrl: "https://data-seed-prebsc-1-s1.binance.org:8545/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -36,7 +35,7 @@ module.exports = {
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
           providerOrUrl:
-            'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+            "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -52,7 +51,7 @@ module.exports = {
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
           providerOrUrl:
-            'https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+            "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -68,7 +67,7 @@ module.exports = {
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
           providerOrUrl:
-            'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+            "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -84,7 +83,7 @@ module.exports = {
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
           providerOrUrl:
-            'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+            "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -100,7 +99,7 @@ module.exports = {
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
           providerOrUrl:
-            'https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+            "https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -115,7 +114,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://polygon-rpc.com/',
+          providerOrUrl: "https://polygon-rpc.com/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -130,7 +129,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://rpc-mumbai.maticvigil.com/',
+          providerOrUrl: "https://rpc-mumbai.maticvigil.com/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -145,7 +144,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://rpcapi.fantom.network/',
+          providerOrUrl: "https://rpcapi.fantom.network/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -160,7 +159,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://rpc.testnet.fantom.network/',
+          providerOrUrl: "https://rpc.testnet.fantom.network/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -175,7 +174,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://rpc.xdaichain.com/',
+          providerOrUrl: "https://rpc.xdaichain.com/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -190,7 +189,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://bsc-dataseed.binance.org/',
+          providerOrUrl: "https://bsc-dataseed.binance.org/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -205,7 +204,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://rpc.moonriver.moonbeam.network',
+          providerOrUrl: "https://rpc.moonriver.moonbeam.network",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -220,7 +219,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://api.avax.network/ext/bc/C/rpc',
+          providerOrUrl: "https://api.avax.network/ext/bc/C/rpc",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -235,7 +234,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://api.avax-test.network/ext/bc/C/rpc',
+          providerOrUrl: "https://api.avax-test.network/ext/bc/C/rpc",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -250,7 +249,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://http-mainnet-node.huobichain.com/',
+          providerOrUrl: "https://http-mainnet-node.huobichain.com/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -265,7 +264,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://http-testnet.hecochain.com',
+          providerOrUrl: "https://http-testnet.hecochain.com",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -280,7 +279,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://api.harmony.one/',
+          providerOrUrl: "https://api.harmony.one/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -295,7 +294,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://api.s0.b.hmny.io/',
+          providerOrUrl: "https://api.s0.b.hmny.io/",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -310,7 +309,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://exchainrpc.okex.org',
+          providerOrUrl: "https://exchainrpc.okex.org",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -325,7 +324,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [process.env.PRIVATE_KEY],
-          providerOrUrl: 'https://exchaintestrpc.okex.org',
+          providerOrUrl: "https://exchaintestrpc.okex.org",
           numberOfAddresses: 1,
           shareNonce: true,
         }),
@@ -349,7 +348,7 @@ module.exports = {
           enabled: true,
           runs: 800,
         },
-        evmVersion: 'berlin',
+        evmVersion: "berlin",
       },
     },
   },
@@ -357,4 +356,4 @@ module.exports = {
   db: {
     enabled: false,
   },
-}
+};

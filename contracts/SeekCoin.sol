@@ -6,14 +6,15 @@ interface IBEP20 {
 
     function balanceOf(address account) external view returns (uint256);
 
-    function transfer(address recipient, uint256 amount)
-        external
-        returns (bool);
+    function transfer(
+        address recipient,
+        uint256 amount
+    ) external returns (bool);
 
-    function allowance(address owner, address spender)
-        external
-        view
-        returns (uint256);
+    function allowance(
+        address owner,
+        address spender
+    ) external view returns (uint256);
 
     function approve(address spender, uint256 amount) external returns (bool);
 
@@ -66,10 +67,10 @@ library Address {
         );
     }
 
-    function functionCall(address target, bytes memory data)
-        internal
-        returns (bytes memory)
-    {
+    function functionCall(
+        address target,
+        bytes memory data
+    ) internal returns (bytes memory) {
         return functionCall(target, data, "Address: low-level call failed");
     }
 
@@ -263,10 +264,12 @@ library SafeMath {
         return a % b;
     }
 }
+
 interface IDEXFactory {
-    function createPair(address tokenA, address tokenB)
-        external
-        returns (address pair);
+    function createPair(
+        address tokenA,
+        address tokenB
+    ) external returns (address pair);
 }
 
 interface IDEXRouter {
@@ -308,10 +311,10 @@ contract SeekCoin is Context, IBEP20, Ownable {
     uint256 public _seekrewardFee = 5;
     uint256 public _previousseekFee;
 
-    address public seekrewardContractAddress = 0xE3F4F3FE28Cdcf6Eda9CB036982045a19457e229;//seekglobal revenew
+    address public seekrewardContractAddress =
+        0xE3F4F3FE28Cdcf6Eda9CB036982045a19457e229; //seekglobal revenew
 
     address public burnAddress = 0x000000000000000000000000000000000000dEaD;
-
 
     mapping(address => bool) public isSwap;
 
@@ -343,17 +346,17 @@ contract SeekCoin is Context, IBEP20, Ownable {
             _DEXRouter.WETH()
         );
 
-         _DEXRouter = IDEXRouter(
+        _DEXRouter = IDEXRouter(
             0x0Ba191026ac1408B0a7AE446eD49D55b0c73d7c3 // no change required
         ); //testnet and mainnet
         // // Create a DEX pair for this new token
-         address pair2 = IDEXFactory(_DEXRouter.factory()).createPair(
+        address pair2 = IDEXFactory(_DEXRouter.factory()).createPair(
             address(this),
             _DEXRouter.WETH()
-         );
+        );
 
         isSwap[pair1] = true; //pancakeswap
-         isSwap[pair2] = true; //seekswap
+        isSwap[pair2] = true; //seekswap
 
         emit Transfer(address(0), owner(), _tTotal);
     }
@@ -379,29 +382,25 @@ contract SeekCoin is Context, IBEP20, Ownable {
         return tokenFromReflection(_rOwned[account]);
     }
 
-    function transfer(address recipient, uint256 amount)
-        public
-        override
-        returns (bool)
-    {
+    function transfer(
+        address recipient,
+        uint256 amount
+    ) public override returns (bool) {
         _transfer(_msgSender(), recipient, amount);
         return true;
     }
 
-    function allowance(address _owner, address spender)
-        public
-        view
-        override
-        returns (uint256)
-    {
+    function allowance(
+        address _owner,
+        address spender
+    ) public view override returns (uint256) {
         return _allowances[_owner][spender];
     }
 
-    function approve(address spender, uint256 amount)
-        public
-        override
-        returns (bool)
-    {
+    function approve(
+        address spender,
+        uint256 amount
+    ) public override returns (bool) {
         _approve(_msgSender(), spender, amount);
         return true;
     }
@@ -423,11 +422,10 @@ contract SeekCoin is Context, IBEP20, Ownable {
         return true;
     }
 
-    function increaseAllowance(address spender, uint256 addedValue)
-        public
-        virtual
-        returns (bool)
-    {
+    function increaseAllowance(
+        address spender,
+        uint256 addedValue
+    ) public virtual returns (bool) {
         _approve(
             _msgSender(),
             spender,
@@ -436,11 +434,10 @@ contract SeekCoin is Context, IBEP20, Ownable {
         return true;
     }
 
-    function decreaseAllowance(address spender, uint256 subtractedValue)
-        public
-        virtual
-        returns (bool)
-    {
+    function decreaseAllowance(
+        address spender,
+        uint256 subtractedValue
+    ) public virtual returns (bool) {
         _approve(
             _msgSender(),
             spender,
@@ -479,11 +476,10 @@ contract SeekCoin is Context, IBEP20, Ownable {
         _tFeeTotal = _tFeeTotal.add(tAmount);
     }
 
-    function reflectionFromToken(uint256 tAmount, bool deductTransferFee)
-        public
-        view
-        returns (uint256)
-    {
+    function reflectionFromToken(
+        uint256 tAmount,
+        bool deductTransferFee
+    ) public view returns (uint256) {
         require(tAmount <= _tTotal, "Amount must be less than supply");
         if (!deductTransferFee) {
             uint256 rAmount = tAmount.mul(_getRate());
@@ -497,11 +493,9 @@ contract SeekCoin is Context, IBEP20, Ownable {
         }
     }
 
-    function tokenFromReflection(uint256 rAmount)
-        public
-        view
-        returns (uint256)
-    {
+    function tokenFromReflection(
+        uint256 rAmount
+    ) public view returns (uint256) {
         require(rAmount <= _rTotal);
         uint256 currentRate = _getRate();
         return rAmount.div(currentRate);
@@ -549,11 +543,9 @@ contract SeekCoin is Context, IBEP20, Ownable {
         _burnFee = burnFee;
     }
 
-    function setburningamountlimit(uint256 _limit)
-        public
-        onlyOwner
-        returns (bool)
-    {
+    function setburningamountlimit(
+        uint256 _limit
+    ) public onlyOwner returns (bool) {
         supplylimitremain = _limit;
         return true;
     }
@@ -653,11 +645,7 @@ contract SeekCoin is Context, IBEP20, Ownable {
         return _isExcludedFromFee[account];
     }
 
-    function _approve(
-        address _owner,
-        address spender,
-        uint256 amount
-    ) private {
+    function _approve(address _owner, address spender, uint256 amount) private {
         require(_owner != address(0));
         require(spender != address(0));
 
@@ -665,11 +653,7 @@ contract SeekCoin is Context, IBEP20, Ownable {
         emit Approval(_owner, spender, amount);
     }
 
-    function _transfer(
-        address from,
-        address to,
-        uint256 amount
-    ) private {
+    function _transfer(address from, address to, uint256 amount) private {
         require(from != address(0));
         require(to != address(0));
         require(amount > 0);
